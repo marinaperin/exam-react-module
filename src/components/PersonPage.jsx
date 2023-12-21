@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { Navigate, useParams } from "react-router-dom";
+import {useParams } from "react-router-dom";
 import GlobalContext from "../GlobalContext";
 import dayjs from "dayjs";
 
