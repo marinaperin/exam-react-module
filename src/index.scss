@@ -85,7 +85,7 @@ main {
   .person-card {
     display: grid;
     gap: 0.5rem;
-    height: 520px;
+    height: 500px;
     padding: 0.5rem;
     text-align: center;
     justify-content: center;
@@ -155,8 +155,11 @@ h2 {
 .profile-page {
   display: grid;
   grid-template-columns: 1fr 2fr;
+  gap: 2rem;
   padding: 1rem;
-
+  .profile-pic {
+    border: 1px solid burlywood;
+  }
   ul li {
     padding: 0.5rem;
   }

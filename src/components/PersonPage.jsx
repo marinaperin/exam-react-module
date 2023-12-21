@@ -17,12 +17,14 @@ export default function () {
       sex: "Sex",
       age: "Age",
       occupation: "Occupation",
+      birthPlace: "Birth Place",
     },
     "it-IT": {
       error: "Nessun personaggio trovato",
       sex: "Sesso",
       age: "Età",
       occupation: "Occupazione",
+      birthPlace: "Nato a",
     },
   };
 
@@ -41,6 +43,7 @@ export default function () {
       });
   }, [id, language]);
 
+  console.log(person);
   return (
     <div>
       {error && <div>{error}</div>}
@@ -48,20 +51,23 @@ export default function () {
         <>
           <h2>{person.name}</h2>
           <div className="profile-page">
-            <section className="personPage-left">
+            <section>
               <figure>
-                <img
-                  src={
-                    person.profile_path === null ||
-                    person.profile_path === undefined
-                      ? "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/2048px-No_image_available.svg.png"
-                      : `https://image.tmdb.org/t/p/w500${person.profile_path}`
-                  }
-                  alt={person.name}
-                />
+                <a href={person.homepage}>
+                  <img
+                    src={
+                      person.profile_path === null ||
+                      person.profile_path === undefined
+                        ? "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/2048px-No_image_available.svg.png"
+                        : `https://image.tmdb.org/t/p/w500${person.profile_path}`
+                    }
+                    alt={person.name}
+                    className="profile-pic"
+                  />
+                </a>
               </figure>
             </section>
-            <section className="personPage-right">
+            <section>
               <ul>
                 <li>
                   <strong>{lang[language].sex}:</strong>{" "}
@@ -69,7 +75,13 @@ export default function () {
                 </li>
                 <li>
                   <strong>{lang[language].age}:</strong>{" "}
-                  {currentYear - birthYear}
+                  {isNaN(currentYear - birthYear)
+                    ? "N-S"
+                    : currentYear - birthYear}
+                </li>
+                <li>
+                  <strong>{lang[language].birthPlace}:</strong>{" "}
+                  {person.place_of_birth}
                 </li>
                 <li>
                   <strong>{lang[language].occupation}:</strong>{" "}
