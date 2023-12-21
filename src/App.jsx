@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import GlobalContext from "./GlobalContext";
 import HomePage from "./components/HomePage";
 import AboutPage from "./components/AboutPage";
+import Navbar from "./components/Navbar";
 import SearchPage from "./components/SearchPage";
 import PersonPage from "./components/PersonPage";
 import { useState } from "react";
@@ -13,6 +14,7 @@ function App() {
 
   return (
     <>
+      <Navbar changeLanguage={(selValue) => setPageLanguage(selValue)} />
       <GlobalContext.Provider
         value={{
           language: pageLanguage,
