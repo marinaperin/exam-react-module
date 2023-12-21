@@ -8,6 +8,7 @@ export default function () {
   const [results, setResults] = useState([]);
   const [error, setError] = useState();
   const { apiKey, language } = useContext(GlobalContext);
+  const [notFound, setNotFound] = useState(false);
 
   const lang = {
     "en-US": {

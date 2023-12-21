@@ -28,11 +28,16 @@ function App() {
         }}
       >
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/">
+            <Route index element={<HomePage />} />
+            <Route path="person/:id" element={<PersonPage />} />
+          </Route>
           <Route path="about" element={<AboutPage />} />
-          <Route path="search" element={<SearchPage />} />
+          <Route path="search">
+            <Route index element={<SearchPage />} />
+            <Route path="person/:id" element={<PersonPage />} />
+          </Route>
           <Route path="person/:id" element={<PersonPage />} />
-          <Route path="search/person/:id" element={<PersonPage />} />
         </Routes>
       </GlobalContext.Provider>
     </>
