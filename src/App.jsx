@@ -4,6 +4,7 @@ import GlobalContext from "./GlobalContext";
 import HomePage from "./components/HomePage";
 import AboutPage from "./components/AboutPage";
 import SearchPage from "./components/SearchPage";
+import PersonPage from "./components/PersonPage";
 import { useState } from "react";
 const apiKey = import.meta.env.VITE_API_KEY;
 
@@ -12,7 +13,6 @@ function App() {
 
   return (
     <>
-      
       <GlobalContext.Provider
         value={{
           language: pageLanguage,
@@ -29,6 +29,8 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="search" element={<SearchPage />} />
+          <Route path="person/:id" element={<PersonPage />} />
+          <Route path="search/person/:id" element={<PersonPage />} />
         </Routes>
       </GlobalContext.Provider>
     </>
