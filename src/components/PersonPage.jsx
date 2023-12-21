@@ -43,7 +43,6 @@ export default function () {
       });
   }, [id, language]);
 
-  console.log(person);
   return (
     <div>
       {error && <div>{error}</div>}
